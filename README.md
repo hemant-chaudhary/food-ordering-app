@@ -1,4 +1,4 @@
-# Simple React App
+# Food ordering App
 
 
 # Parcel
@@ -17,3 +17,36 @@
 - HTTPS
 - Tree shaking algorithm - remove unused code
 - Different prod & dev bundles
+
+/*
+ * - Header
+ *   - Logo
+ *   - Nav items
+ * - Body
+ *   - search
+ *   - Restaurant container
+ *     - Restaurant Card
+ *       - name, image, start rating, delivery time
+ * - Footer
+ *    - Copyrite
+ *    - Address
+ *    - Contact
+ *    - Link
+ */
+
+
+ # Two types of eports
+
+- Default Export/Import
+    - export default component
+    - import component from "path"
+
+- Named Export/Import
+    - export const Component
+    - import {Component} from "path"
+
+# React Hooks
+- Normal JS utility functions
+- Most used hooks
+    - useState()
+    - useEffect() 
