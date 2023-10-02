@@ -11,7 +11,6 @@ const ResCard = (props) => {
     deliveryTime,
   } = resData?.data;
 
-  console.log(resData)
   return (
     <div className="res-card" style={{ backgroundColor: "lightgray" }}>
       <img

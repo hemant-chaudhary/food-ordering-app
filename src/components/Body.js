@@ -1,10 +1,10 @@
 import ResCard from "./ResCard";
 import resList from "../utils/mockData";
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import { RES_DATA_URL } from "../utils/constants";
 const Body = () => {
   // local state variable
-  const [listOfRestaurants, setListOfRestaurants] = useState(resList)
+  const [listOfRestaurants, setListOfRestaurants] = useState(resList);
 
   // Normal JS function
   let listOfRestaurants1 = [
@@ -39,15 +39,36 @@ const Body = () => {
       },
     },
   ];
+
+  useEffect(() => {
+    console.log("useEffect called");
+    getRestaurants();
+  }, []);
+
+  getRestaurants = async () => {
+    const data = await fetch(RES_DATA_URL);
+    const json_data = await data.json();
+
+    console.log(json_data);
+    setListOfRestaurants(json_data.data.cards)
+  };
+
+  console.log("rendered");
+
   return (
     <div className="body">
       {/* <div className="search">Search</div> */}
       <div className="filter">
-        <button className="top-btn" onClick={() => {
-          filteredList = listOfRestaurants.filter(res => res.data.avgRating > 4);
-          setListOfRestaurants(filteredList)
-          console.log(listOfRestaurants)
-        }}>
+        <button
+          className="top-btn"
+          onClick={() => {
+            filteredList = listOfRestaurants.filter(
+              (res) => res.data.avgRating > 4
+            );
+            setListOfRestaurants(filteredList);
+            console.log(listOfRestaurants);
+          }}
+        >
           Top rated Restaurants
         </button>
       </div>
